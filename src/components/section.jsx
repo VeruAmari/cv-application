@@ -1,9 +1,18 @@
-function Section({ children, sectionClass, sectionName }) {
+/* eslint-disable react/prop-types */
+function Section({ children, sectionClass, sectionName, type }) {
   return (
-    <div className={`section ${sectionClass}`}>
-      <h1>{sectionName}</h1>
-      {children}
-    </div>
+    (type === 'form' && (
+      <fieldset className={`form section ${sectionClass}`}>
+        <legend>{sectionName}</legend>
+        {children}
+      </fieldset>
+    )) ||
+    (type === 'preview' && (
+      <>
+        <h2>{sectionName}</h2>
+        {children}
+      </>
+    ))
   );
 }
 

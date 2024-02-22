@@ -1,22 +1,36 @@
-function Name() {
+/* eslint-disable react/prop-types */
+function capitalized(word) {
+  const w = word.charAt(0).toUpperCase();
+  const ord = word.substring(1);
+  return w + ord;
+}
+function Info({ type, info }) {
   return (
     <>
-      <h1>Name</h1>
+      <label htmlFor={'preview-' + type}>{capitalized(type)}</label>{' '}
+      <p id={'preview-' + type}>{info || 'My ' + type + ' here'}</p>
     </>
   );
 }
-function Email() {
+function Data({ data, onChange, field, inputType, isInput }) {
   return (
-    <>
-      <h1>Email</h1>
-    </>
+    (isInput && (
+      <>
+        <label htmlFor={field}>{capitalized(field)}</label>
+        <input
+          value={data}
+          type={inputType}
+          name={field}
+          id={field}
+          placeholder={capitalized(field)}
+          onChange={onChange}
+        />
+      </>
+    )) || (
+      <>
+        <Info type={field} info={data} />
+      </>
+    )
   );
 }
-function Phone() {
-  return (
-    <>
-      <h1>Phone</h1>
-    </>
-  );
-}
-export { Name, Email, Phone };
+export { Data };
