@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { Data } from './components/generalInfo';
+import { InputOrDisplay, GeneralInfoFields } from './components/infoFields';
 import { Section } from './components/section';
 import { Form } from './components/form';
 import { Preview } from './components/preview';
@@ -10,18 +11,22 @@ function App() {
     name: '',
     email: '',
     tel: '',
-    education: [],
-    experience: [],
+  });
+  const [educationInfo, setEducationInfo] = useState({
+    institution: '',
+  });
+  const [jobsInfo, setJobsInfo] = useState({
+    company: '',
   });
 
-  function onNameChange(e) {
-    setGeneralInfo({ ...generalInfo, name: e.target.value });
+  function onGeneralInfoChange(e) {
+    setGeneralInfo({ ...generalInfo, [e.target.id]: e.target.value });
   }
-  function onMailChange(e) {
-    setGeneralInfo({ ...generalInfo, email: e.target.value });
+  function onEducationChange(e) {
+    setEducationInfo({ ...educationInfo, [e.target.id]: e.target.value });
   }
-  function onPhoneChange(e) {
-    setGeneralInfo({ ...generalInfo, tel: e.target.value });
+  function onJobChange(e) {
+    setJobsInfo({ ...jobsInfo, [e.target.id]: e.target.value });
   }
 
   return (
@@ -32,25 +37,35 @@ function App() {
           sectionClass="personal-info"
           type="form"
         >
-          <Data
-            data={generalInfo.name}
-            onChange={onNameChange}
-            field="name"
+          <GeneralInfoFields
+            generalInfo={generalInfo}
+            onChange={onGeneralInfoChange}
+            isInput={true}
+          />
+        </Section>
+        <Section
+          sectionName="Educational Experience"
+          sectionClass="educational experience"
+          type="form"
+        >
+          <InputOrDisplay
+            data={educationInfo.institution}
+            onChange={onEducationChange}
+            field="institution"
             inputType="text"
             isInput={true}
           />
-          <Data
-            data={generalInfo.email}
-            onChange={onMailChange}
-            field="email"
-            inputType="email"
-            isInput={true}
-          />
-          <Data
-            data={generalInfo.tel}
-            onChange={onPhoneChange}
-            field="tel"
-            inputType="tel"
+        </Section>
+        <Section
+          sectionName="Practical Experience"
+          sectionClass="practical experience"
+          type="form"
+        >
+          <InputOrDisplay
+            data={jobsInfo.company}
+            onChange={onJobChange}
+            field="company"
+            inputType="text"
             isInput={true}
           />
         </Section>
@@ -61,13 +76,24 @@ function App() {
           sectionClass="personal-info"
           type="preview"
         >
-          <Data data={generalInfo.name} field="name" onChange={onNameChange} />
-          <Data
-            data={generalInfo.email}
-            field="email"
-            onChange={onMailChange}
+          <GeneralInfoFields generalInfo={generalInfo} isInput={false} />
+        </Section>
+        <Section
+          sectionName="Educational Experience"
+          sectionClass="educational experience"
+          type="preview"
+        >
+          <InputOrDisplay
+            data={educationInfo.institution}
+            field="institution"
           />
-          <Data data={generalInfo.tel} field="tel" onChange={onPhoneChange} />
+        </Section>
+        <Section
+          sectionName="Practical Experience"
+          sectionClass="practical experience"
+          type="preview"
+        >
+          <InputOrDisplay data={jobsInfo.company} field="company" />
         </Section>
       </Preview>
     </>

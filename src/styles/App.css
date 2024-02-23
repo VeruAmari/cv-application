@@ -1,13 +1,27 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0;
   padding: 2rem;
+  box-sizing: border-box;
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 5fr;
+  min-height: 100vh;
+  justify-items: center;
 }
 
 .preview {
-  background-color: aliceblue;
+  background-color: #fefefe;
   color: #262626;
+  display: grid;
+  justify-items: start;
+  padding-left: 2rem;
+}
+.preview-panel {
+  height: 100%;
+}
+.preview > label {
+  font-weight: bold;
+  padding-left: 1rem;
+  border-bottom: #262626 solid 2px;
 }
