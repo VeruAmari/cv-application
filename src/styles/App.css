@@ -15,12 +15,18 @@
   display: grid;
   justify-items: start;
   padding-left: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0.5px 0.5px 7px #262626;
+  margin-bottom: 2rem;
 }
 .preview-panel {
+  display: grid;
   height: 100%;
   width: 100%;
   overflow: scroll;
   max-height: 100vh;
+  justify-items: center;
 }
 form,
 fieldset {
