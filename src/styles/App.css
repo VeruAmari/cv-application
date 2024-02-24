@@ -17,10 +17,12 @@
   padding-left: 2rem;
   width: 100%;
   max-width: 1200px;
-  box-shadow: 0.5px 0.5px 7px #262626;
+  box-shadow: 0.5px 0.5px 15px #26262671;
   margin-bottom: 2rem;
+  max-width: 600px;
 }
 .preview-panel {
+  background-color: #eee;
   display: grid;
   height: 100%;
   width: 100%;
@@ -41,14 +43,20 @@ fieldset,
   align-items: center;
 }
 form {
+  background-color: #f5d0f5;
+  padding: 1rem;
   gap: 1rem;
   grid-template-rows: auto auto auto;
   grid-template-columns: 1fr;
   overflow: scroll;
   max-height: 100vh;
 }
+fieldset {
+  background-color: #fae3fa;
+}
 input {
   max-width: 30ex;
+  background-color: #fefefe;
 }
 .preview > label {
   font-weight: bold;
