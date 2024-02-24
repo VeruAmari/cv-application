@@ -1,30 +1,38 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { InputOrDisplay, GeneralInfoFields } from './components/infoFields';
+import {
+  GeneralInfoFields,
+  EducationInfoFields,
+  JobsInfoFields,
+} from './components/infoFields';
 import { Section } from './components/section';
 import { Form } from './components/form';
 import { Preview } from './components/preview';
 import './styles/App.css';
 
 function App() {
+  // General Info
   const [generalInfo, setGeneralInfo] = useState({
     name: '',
     email: '',
     tel: '',
   });
-  const [educationInfo, setEducationInfo] = useState({
-    institution: '',
-  });
-  const [jobsInfo, setJobsInfo] = useState({
-    company: '',
-  });
-
   function onGeneralInfoChange(e) {
     setGeneralInfo({ ...generalInfo, [e.target.id]: e.target.value });
   }
+
+  // Education
+  const [educationInfo, setEducationInfo] = useState({
+    institution: '',
+  });
   function onEducationChange(e) {
     setEducationInfo({ ...educationInfo, [e.target.id]: e.target.value });
   }
+
+  // Jobs
+  const [jobsInfo, setJobsInfo] = useState({
+    company: '',
+  });
   function onJobChange(e) {
     setJobsInfo({ ...jobsInfo, [e.target.id]: e.target.value });
   }
@@ -43,29 +51,27 @@ function App() {
             isInput={true}
           />
         </Section>
+
         <Section
-          sectionName="Educational Experience"
-          sectionClass="educational experience"
+          sectionName="Education Experience"
+          sectionClass="education experience"
           type="form"
         >
-          <InputOrDisplay
-            data={educationInfo.institution}
+          <EducationInfoFields
+            educationInfo={educationInfo}
             onChange={onEducationChange}
-            field="institution"
-            inputType="text"
             isInput={true}
           />
         </Section>
+
         <Section
           sectionName="Practical Experience"
           sectionClass="practical experience"
           type="form"
         >
-          <InputOrDisplay
-            data={jobsInfo.company}
+          <JobsInfoFields
+            jobsInfo={jobsInfo}
             onChange={onJobChange}
-            field="company"
-            inputType="text"
             isInput={true}
           />
         </Section>
@@ -78,22 +84,21 @@ function App() {
         >
           <GeneralInfoFields generalInfo={generalInfo} isInput={false} />
         </Section>
+
         <Section
-          sectionName="Educational Experience"
-          sectionClass="educational experience"
+          sectionName="Education Experience"
+          sectionClass="education experience"
           type="preview"
         >
-          <InputOrDisplay
-            data={educationInfo.institution}
-            field="institution"
-          />
+          <EducationInfoFields educationInfo={educationInfo} isInput={false} />
         </Section>
+
         <Section
           sectionName="Practical Experience"
           sectionClass="practical experience"
           type="preview"
         >
-          <InputOrDisplay data={jobsInfo.company} field="company" />
+          <JobsInfoFields jobsInfo={jobsInfo} isInput={false} />
         </Section>
       </Preview>
     </>

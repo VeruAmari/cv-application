@@ -63,4 +63,31 @@ function GeneralInfoFields({ isInput, generalInfo, onChange }) {
   );
 }
 
-export { InputOrDisplay, GeneralInfoFields };
+function EducationInfoFields({ isInput, educationInfo, onChange }) {
+  return (
+    <>
+      <InputOrDisplay
+        data={educationInfo.institution}
+        onChange={onChange}
+        field="institution"
+        inputType="text"
+        isInput={isInput}
+      />
+    </>
+  );
+}
+
+function JobsInfoFields({ isInput, jobsInfo, onChange }) {
+  return (
+    <>
+      <InputOrDisplay
+        data={jobsInfo.company}
+        onChange={onChange}
+        field="company"
+        inputType="text"
+        isInput={isInput}
+      />
+    </>
+  );
+}
+export { GeneralInfoFields, EducationInfoFields, JobsInfoFields };
