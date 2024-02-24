@@ -29,10 +29,16 @@
   justify-items: center;
 }
 form,
-fieldset {
+fieldset,
+.header {
   display: grid;
   align-items: start;
   align-content: start;
+}
+.header {
+  grid-template-columns: auto auto;
+  gap: 1rem;
+  align-items: center;
 }
 form {
   gap: 1rem;
@@ -41,10 +47,6 @@ form {
   overflow: scroll;
   max-height: 100vh;
 }
-.hide {
-  width: 0px;
-  visibility: hidden;
-}
 input {
   max-width: 30ex;
 }
@@ -52,4 +54,8 @@ input {
   font-weight: bold;
   padding-left: 1rem;
   border-bottom: #262626 solid 2px;
+}
+.hide {
+  width: 0px;
+  visibility: hidden;
 }
