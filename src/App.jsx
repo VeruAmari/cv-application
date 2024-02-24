@@ -24,6 +24,8 @@ function App() {
   // Education
   const [educationInfo, setEducationInfo] = useState({
     institution: '',
+    title: '',
+    year: '',
   });
   function onEducationChange(e) {
     setEducationInfo({ ...educationInfo, [e.target.id]: e.target.value });
@@ -32,6 +34,10 @@ function App() {
   // Jobs
   const [jobsInfo, setJobsInfo] = useState({
     company: '',
+    position: '',
+    responsibilities: '',
+    from: '',
+    until: '',
   });
   function onJobChange(e) {
     setJobsInfo({ ...jobsInfo, [e.target.id]: e.target.value });
