@@ -73,6 +73,20 @@ function EducationInfoFields({ isInput, educationInfo, onChange }) {
         inputType="text"
         isInput={isInput}
       />
+      <InputOrDisplay
+        data={educationInfo.title}
+        onChange={onChange}
+        field="title"
+        inputType="text"
+        isInput={isInput}
+      />
+      <InputOrDisplay
+        data={educationInfo.year}
+        onChange={onChange}
+        field="year"
+        inputType="text"
+        isInput={isInput}
+      />
     </>
   );
 }
@@ -84,6 +98,35 @@ function JobsInfoFields({ isInput, jobsInfo, onChange }) {
         data={jobsInfo.company}
         onChange={onChange}
         field="company"
+        inputType="text"
+        isInput={isInput}
+      />
+      <InputOrDisplay
+        data={jobsInfo.position}
+        onChange={onChange}
+        field="position"
+        inputType="text"
+        isInput={isInput}
+      />
+      <InputOrDisplay
+        data={jobsInfo.responsibilities}
+        onChange={onChange}
+        field="responsibilities"
+        inputType="text"
+        isInput={isInput}
+      />
+      <InputOrDisplay
+        data={jobsInfo.from}
+        onChange={onChange}
+        field="from"
+        inputType="text"
+        isInput={isInput}
+      />
+
+      <InputOrDisplay
+        data={jobsInfo.until}
+        onChange={onChange}
+        field="until"
         inputType="text"
         isInput={isInput}
       />
